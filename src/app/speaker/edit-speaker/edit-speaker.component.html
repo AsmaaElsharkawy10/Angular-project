@@ -1,0 +1,44 @@
+
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="mb-3 mx-1" [(ngModel)]="speaker._id" disabled>
+          <h6>Fullname</h6>
+          <input [(ngModel)]="speaker.fullName" >
+         
+         
+          <h6 class="my-2">Image</h6>
+          <img type="file" [src]="speaker.image">
+
+          <h6>Email</h6>
+          <input [(ngModel)]="speaker.email" disabled >
+
+          <h6>Address</h6>
+          City : <select class="form-select" [(ngModel)]="speaker.address.city">
+            <option value="Tanta">Tanta</option>
+            <option value="Minya">Minya</option>
+            <option value="Mansoura">Mansoura</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Giza">Giza</option>
+          </select>
+          <div class="col-md-3">
+            Street :  <input [value]="speaker.address.street" type="text" [(ngModel)]="speaker.address['street']" placeholder="Enter City" class="form-control">
+           </div>
+           <div class="col-md-3">
+            building :  <input [value]="speaker.address.building"  type="number" min="1" [(ngModel)]="speaker.address['building']" placeholder="Enter street" class="form-control">
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="save()" >sava</button>
+        </div>
+      </div>
+    </div>
+  </div>

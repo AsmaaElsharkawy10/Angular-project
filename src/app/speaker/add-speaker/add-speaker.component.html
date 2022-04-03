@@ -1,0 +1,53 @@
+<h3 class="text-center text-danger my-3">Speaker Form</h3>
+<section class="container">
+    <div class="row  mb-3">
+        <div class="col-md-6 ">
+          <h5 class="text-danger">Fullname :</h5>
+
+          <input type="text" [(ngModel)]="newSpeaker.fullName" placeholder="Enter Fullname" class=" form-control">
+        </div>
+        <div class="col-md-6 ">
+          <h5 class="text-danger">Email :</h5>
+
+          <input type="text" [(ngModel)]="newSpeaker.email" placeholder="Enter Fullname" class=" form-control">
+        </div>
+          <h5 class="text-danger mt-3">Choose image :</h5>
+
+          <input type="file" (input)="onFileChange($event)" class=" form-control">
+        </div>
+        <div  class="col-md-4">
+          <h5 class="text-danger ">Role :</h5>   
+
+          <select class="form-select" [(ngModel)]="newSpeaker.role">
+            <option value="speaker">Speaker</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+      
+        <h5 class="text-danger">Address :</h5>
+        <div class="col-md-3">
+          City : <select class="form-select" [(ngModel)]="newSpeaker.address['city']">
+            <option value="Tanta">Tanta</option>
+            <option value="Minya">Minya</option>
+            <option value="Mansoura">Mansoura</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Giza">Giza</option>
+          </select>
+         </div>
+         <div class="col-md-3">
+          Street :  <input [value]="newSpeaker.address.street" type="text" [(ngModel)]="newSpeaker.address['street']" placeholder="Enter City" class="form-control">
+         </div>
+         <div class="col-md-3">
+          building :  <input [value]="newSpeaker.address.building"  type="number" min="1" [(ngModel)]="newSpeaker.address['building']" placeholder="Enter street" class="form-control">
+         </div>
+         
+        
+          
+        
+       
+       
+ 
+        <button  class="btn btn-dark mt-3 rounded-pill w-75" (click)="save()">Save</button>
+
+      <!-- form end -->

@@ -1,0 +1,37 @@
+<span class="my-2">Filter :</span> <input class="w-25 mx-2 my-2" type="text" [(ngModel)]="filteredString" name="filter"  />
+<table class="table table-bordered text-center my-2">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Fullname</th>
+            <th>Image</th>
+            <th>Address</th>
+            <th>Email</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let speaker of speakers|filter:filteredString">
+                    <td>{{speaker._id}}</td>
+                    <td>{{speaker.fullName}}</td>
+                    <td><img [src]="speaker?.image" [title]="speaker.image"></td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <li>City : {{speaker.address.city}}</li>
+                            <li>Street : {{speaker.address.street}}</li>
+                            <li>Building : {{speaker.address.building}}</li>
+                        </ul>
+                          </td>
+                    <td>{{speaker.email}}</td>
+                    <td><button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=" this.speakerDetailsId=speaker._id;">Details</button></td>
+                    <td><button class="btn btn-danger"   (click)="speakerDeletId=speaker._id">Delete</button></td>
+                    <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal" (click)="speakerEditId=speaker._id" >Edit</button></td>
+                    </tr>
+                  
+        </tbody>
+</table>
+<app-details-speaker [speakerId]="speakerDetailsId"></app-details-speaker>
+<br>
+<app-edit-speaker [speakerID]="speakerEditId"></app-edit-speaker>
+<br>
+<app-delete-speaker [speakerId]="speakerDeletId"></app-delete-speaker>
